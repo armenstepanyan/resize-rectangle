@@ -13,38 +13,17 @@
 }
 
 
-
-/*.rectangle:before {*/
-    /*content: "";*/
-    /*display: block;*/
-    /*background: #0000FF;*/
-    /*width: 15px;*/
-    /*height: 15px;*/
-    /*margin: auto;*/
-    /*margin-top: -20px;*/
-    /*border: 1px solid #03a9f7;*/
-    /*border-radius: 8px;*/
-    /*cursor: crosshair;*/
-    /*opacity: 0;*/
-/*}*/
-
-/*.rectangle.active:before{*/
-    /*opacity: 1;*/
-/*}*/
-
-
 .rotate-btn {
     content:"";
     display:block;
     position: absolute;
-    top: -20px;
-    background: #0000FF;
+    top: -30px;
+    background: #03a9f7;
     width: 15px;
     height: 15px;
     border: 1px solid #03a9f7;
     cursor: crosshair;
     border-radius: 8px;
-
     z-index: 15;
 }
 
