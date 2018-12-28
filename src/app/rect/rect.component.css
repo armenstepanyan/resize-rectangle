@@ -1,0 +1,117 @@
+.container{
+    margin-top: 100px;
+}
+
+.rectangle {
+    border: 1px solid #000;
+    margin: auto;
+    z-index: 10;
+}
+
+.active {
+    border: 1px solid #0000FF;
+}
+
+
+
+/*.rectangle:before {*/
+    /*content: "";*/
+    /*display: block;*/
+    /*background: #0000FF;*/
+    /*width: 15px;*/
+    /*height: 15px;*/
+    /*margin: auto;*/
+    /*margin-top: -20px;*/
+    /*border: 1px solid #03a9f7;*/
+    /*border-radius: 8px;*/
+    /*cursor: crosshair;*/
+    /*opacity: 0;*/
+/*}*/
+
+/*.rectangle.active:before{*/
+    /*opacity: 1;*/
+/*}*/
+
+
+.rotate-btn {
+    content:"";
+    display:block;
+    position: absolute;
+    top: -20px;
+    background: #0000FF;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #03a9f7;
+    cursor: crosshair;
+    border-radius: 8px;
+
+    z-index: 15;
+}
+
+
+.crop {
+    position: absolute;
+    /*transition: all 0.25s;*/
+}
+
+.crop .crop-line {
+    position: absolute;
+    /*transition: all 0.25s;*/
+}
+.crop:hover .crop-line {
+    border-color: rgba(123,53,132,1);
+}
+
+.crop .crop-bottom-line {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    cursor: s-resize;
+}
+
+
+.crop .crop-corner {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #0000FF;
+    opacity: 0;
+    /*transition: all 0.25s;*/
+}
+
+.crop.active .crop-corner{
+    opacity: 1;
+}
+
+.crop .crop-top-left-corner {
+    top: -3px;
+    left: -3px;
+    cursor: nw-resize;
+}
+.crop .crop-top-right-corner {
+    top: -3px;
+    right: -3px;
+    cursor: ne-resize;
+}
+.crop .crop-bottom-left-corner {
+    bottom: -3px;
+    left: -3px;
+    cursor: sw-resize;
+}
+.crop .crop-bottom-right-corner {
+    bottom: -3px;
+    right: -3px;
+    /*cursor: se-resize;*/
+    cursor: url('/assets/resize icon.png') 10 15, auto;
+}
+
+.crop.active:hover .crop-corner {
+    opacity: 1;
+}
+
+.shadow{
+    border: 1px solid #000;
+    position: absolute;
+    z-index: 1;
+}

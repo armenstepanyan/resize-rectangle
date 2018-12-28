@@ -1,0 +1,36 @@
+<div class="container">
+  <div
+          class="rectangle crop"
+          [class.active] = "isActive"
+          (click)="isActive = true"
+          [style.width.px]="rectStyles.width"
+          [style.height.px] = "rectStyles.height"
+          [style.top.px] = "rectStyles.top"
+          [style.left.px] = "rectStyles.left"
+          [style.transform] = "rectStyles.transform"
+  >
+    <div
+            class="rotate-btn"
+            (mousedown)="onRotateBtnMouseDown($event)"
+            [style.left.px] = "rectStyles.width / 2 - 8"
+            *ngIf="isActive"
+    >
+    </div>
+    <div class="crop-corner crop-top-left-corner" (mousedown) = "onMouseDown($event, 'top-left')"></div>
+    <div class="crop-corner crop-top-right-corner"  (mousedown)="onMouseDown($event, 'top-right')"></div>
+
+    <div class="crop-corner crop-bottom-right-corner" (mousedown)="onMouseDown($event, 'bottom-right')"></div>
+
+    <div class="crop-corner crop-bottom-left-corner" (mousedown)="onMouseDown($event, 'bottom-left')"></div>
+  </div>
+</div>
+
+<div class="shadow"
+     [style.width.px]="shadowStyles.width"
+     [style.height.px] = "shadowStyles.height"
+     [style.top.px] = "shadowStyles.top"
+     [style.left.px] = "shadowStyles.left"
+     [style.transform] = "shadowStyles.transform"
+     #shadow
+>
+</div>
