@@ -36,24 +36,27 @@ export class RectComponent implements OnInit {
         if (!this.isActive) {
             return;
         }
-
+        let left, top;
         if (this.isMouseClicked) {
 
             switch (this.corner) {
                 case 'top-left':
+                    left = this.shadowStyles.width + this.shadowStyles.left;
+                    top = this.shadowStyles.top + this.shadowStyles.height;
                     this.shadowStyles = {
                         ...this.shadowStyles,
-                        left: e.pageX,
-                        top: e.pageY,
+                        left: e.pageX > left ? left : e.pageX,
+                        top: e.pageY > top ? top : e.pageY,
                         width: this.getValue(this.shadowStyles.width - (e.pageX - this.shadowStyles.left)),
                         height: this.getValue(this.shadowStyles.height - (e.pageY - this.shadowStyles.top))
                     };
                     break;
                 case 'top-right':
+                    top = this.shadowStyles.top + this.shadowStyles.height;
                     this.shadowStyles = {
                         ...this.shadowStyles,
                         width: this.getValue(e.pageX - this.shadowStyles.left),
-                        top: e.pageY,
+                        top: e.pageY > top ? top : e.pageY,
                         height: this.getValue(this.shadowStyles.height - (e.pageY - this.shadowStyles.top))
                     };
                     break;
@@ -65,9 +68,10 @@ export class RectComponent implements OnInit {
                     };
                     break;
                 case 'bottom-left':
+                    left = this.shadowStyles.width + this.shadowStyles.left;
                     this.shadowStyles = {
                         ...this.shadowStyles,
-                        left: e.pageX,
+                        left: e.pageX > left ? left : e.pageX,
                         height: this.getValue(e.pageY - this.shadowStyles.top),
                         width: this.getValue(this.shadowStyles.width - (e.pageX - this.shadowStyles.left)),
                     };
