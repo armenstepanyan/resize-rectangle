@@ -13,6 +13,7 @@ export class RectComponent implements OnInit {
 
     corner: string;
 
+    degree: number;
     @ViewChild('shadow') shadow: ElementRef;
 
 
@@ -39,6 +40,9 @@ export class RectComponent implements OnInit {
         let left, top;
         if (this.isMouseClicked) {
 
+            // If div is rotated
+            // let pageX = e.pageX * Math.cos(this.degree)
+            // let pageY = e.pageY * Math.sin(this.degree)  maybe ...
             switch (this.corner) {
                 case 'top-left':
                     left = this.shadowStyles.width + this.shadowStyles.left;
@@ -86,6 +90,7 @@ export class RectComponent implements OnInit {
             const mouseY = e.pageY;
             const radians = Math.atan2(mouseX - centerX, mouseY - centerY);
             const degree = (radians * (180 / Math.PI) * -1) + 180;
+            this.degree = degree;
             this.shadowStyles = {...this.shadowStyles, transform: `rotate(${degree}deg)`};
 
         }
